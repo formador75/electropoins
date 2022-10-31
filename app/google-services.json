@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "909551439294",
+    "project_id": "electropoints-74bd3",
+    "storage_bucket": "electropoints-74bd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909551439294:android:344a6f48eac95355a03def",
+        "android_client_info": {
+          "package_name": "com.miempresa.electropoints"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909551439294-csncuokstkf5gl0n45lfso03octmh2r9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miempresa.electropoints",
+            "certificate_hash": "3c946fa4d383232d4da4a2b4a072b9e91082c3a7"
+          }
+        },
+        {
+          "client_id": "909551439294-ij5judmkp57q2t37bis3k72o5ocd3k74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3NgKPtqISo4UtJ4NHLEVTd9rNrzOn130"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909551439294-ij5judmkp57q2t37bis3k72o5ocd3k74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
