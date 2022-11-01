@@ -13,13 +13,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnLogin;
+    Button btnLogin, btnListar;
     private FirebaseAuth miAutenticacion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnLogin = findViewById(R.id.button);
+        btnListar = findViewById(R.id.button3);
 
         miAutenticacion = FirebaseAuth.getInstance();
 
@@ -32,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+    }
+
+
+    public void irListar(View view){
+        Intent i = new Intent(MainActivity.this, ListarEstaciones.class);
+        startActivity(i);
     }
 
     @Override
@@ -40,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
         actualizarUI(usuarioActual);
     }
+
+
+
+
 
     public void actualizarUI(FirebaseUser usuario){
 
