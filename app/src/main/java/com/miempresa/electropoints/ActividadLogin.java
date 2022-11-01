@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ActividadLogin extends AppCompatActivity {
 
@@ -37,7 +39,6 @@ public class ActividadLogin extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-
                 ingresar(email, password);
 
             }
@@ -52,6 +53,26 @@ public class ActividadLogin extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
+        actualizarUI(usuarioActual);
+    }
+
+    public void actualizarUI(FirebaseUser usuario){
+
+        if(usuario != null){
+            Intent i = new Intent(ActividadLogin.this, MainActivity.class);
+            startActivity(i);
+        }else{
+            Toast.makeText(ActividadLogin.this, "Ingrese sud datos de acceso", Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
     public void ingresar(String email, String password){
 
         miAutenticacion.signInWithEmailAndPassword(email, password)
@@ -60,11 +81,12 @@ public class ActividadLogin extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
 
-
+                            Toast.makeText(ActividadLogin.this, "El ingreso ha sido exitoso", Toast.LENGTH_LONG).show();
+                            FirebaseUser usuarioActual = miAutenticacion.getCurrentUser();
+                            actualizarUI(usuarioActual);
 
                         }else{
-
-
+                            Toast.makeText(ActividadLogin.this, "Los datos son incorrecotos", Toast.LENGTH_LONG).show();
                         }
 
 
